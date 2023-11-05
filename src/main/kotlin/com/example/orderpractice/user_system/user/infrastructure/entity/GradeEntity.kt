@@ -1,7 +1,8 @@
 package com.example.orderpractice.user_system.user.infrastructure.entity
 
 import com.example.orderpractice.common.entity.BaseEntity
-import com.example.orderpractice.user_system.user.infrastructure.constants.GradeStatus
+import com.example.orderpractice.user_system.user.domain.model.constants.GradeStatus
+import java.time.ZonedDateTime
 import javax.persistence.*
 
 @Entity
@@ -19,5 +20,16 @@ class GradeEntity(
 
     @Column(name = "user_id")
     val userId: Long,
-): BaseEntity() {
+    createdAt: ZonedDateTime,
+    updatedAt: ZonedDateTime,
+    deletedAt: ZonedDateTime?,
+    updatedBy: Long,
+    createdBy: Long
+): BaseEntity(
+    createdAt = createdAt,
+    updatedAt = updatedAt,
+    deletedAt = deletedAt,
+    updatedBy = updatedBy,
+    createdBy = createdBy,
+) {
 }

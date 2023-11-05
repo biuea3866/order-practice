@@ -1,8 +1,7 @@
-package com.example.orderpractice.user_system.point.infrastructure.entity
+package com.example.orderpractice.payment_system.point.infrastructure.entity
 
 import com.example.orderpractice.common.entity.BaseEntity
-import com.example.orderpractice.user_system.point.infrastructure.constants.CouponStatus
-import java.time.ZonedDateTime
+import com.example.orderpractice.payment_system.point.infrastructure.constants.CouponStatus
 import javax.persistence.*
 
 @Entity
