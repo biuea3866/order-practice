@@ -5,6 +5,7 @@ import com.example.orderpractice.user_system.user.domain.model.constants.GradeSt
 import java.time.ZonedDateTime
 import javax.persistence.*
 
+// 테스트를 위한 주석
 @Entity
 @Table(name = "Grade")
 class GradeEntity(
