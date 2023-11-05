@@ -1,7 +1,7 @@
 package com.example.orderpractice.user_system.user.infrastructure.entity
 
 import com.example.orderpractice.common.entity.BaseEntity
-import com.example.orderpractice.user_system.user.infrastructure.constants.UserStatus
+import com.example.orderpractice.user_system.user.domain.model.constants.UserStatus
 import java.time.ZonedDateTime
 import javax.persistence.*
 
@@ -27,5 +27,16 @@ class UserEntity(
     @Enumerated(EnumType.STRING)
     @Column(name = "status")
     val status: UserStatus,
-): BaseEntity() {
+    createdAt: ZonedDateTime,
+    updatedAt: ZonedDateTime,
+    deletedAt: ZonedDateTime?,
+    updatedBy: Long,
+    createdBy: Long
+): BaseEntity(
+    createdAt = createdAt,
+    updatedAt = updatedAt,
+    deletedAt = deletedAt,
+    updatedBy = updatedBy,
+    createdBy = createdBy,
+) {
 }

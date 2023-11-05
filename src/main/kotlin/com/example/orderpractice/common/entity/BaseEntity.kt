@@ -4,19 +4,25 @@ import java.time.ZonedDateTime
 import javax.persistence.*
 
 @MappedSuperclass // 엔티티 클래스끼리 상속받기 위한 어노테이션
-abstract class BaseEntity {
+open class BaseEntity(
     @Column(
         name = "created_at",
         updatable = false
     )
-    lateinit var createdAt: ZonedDateTime
+    var createdAt: ZonedDateTime,
 
     @Column(name = "updated_at")
-    lateinit var updatedAt: ZonedDateTime
+    var updatedAt: ZonedDateTime,
 
     @Column(name = "deleted_at")
-    var deletedAt: ZonedDateTime? = null
+    val deletedAt: ZonedDateTime?,
 
+    @Column(name = "updated_by")
+    val updatedBy: Long,
+
+    @Column(name = "created_by")
+    val createdBy: Long
+) {
     // 영속화 시에 동작
     @PrePersist
     fun prePersist() {

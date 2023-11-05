@@ -1,7 +1,8 @@
 package com.example.orderpractice.user_system.user.infrastructure.entity
 
 import com.example.orderpractice.common.entity.BaseEntity
-import com.example.orderpractice.user_system.user.infrastructure.constants.ScoreStatus
+import com.example.orderpractice.user_system.user.domain.model.constants.ScoreStatus
+import java.time.ZonedDateTime
 import javax.persistence.*
 
 @Entity
@@ -17,5 +18,22 @@ class ReviewEntity(
     @Column(name = "score")
     @Enumerated(EnumType.STRING)
     val score: ScoreStatus,
-): BaseEntity() {
+
+    @Column(name = "user_id")
+    val userId: Long,
+
+    @Column(name = "store_id")
+    val storeId: Long,
+    createdAt: ZonedDateTime,
+    updatedAt: ZonedDateTime,
+    deletedAt: ZonedDateTime?,
+    updatedBy: Long,
+    createdBy: Long
+): BaseEntity(
+    createdAt = createdAt,
+    updatedAt = updatedAt,
+    deletedAt = deletedAt,
+    updatedBy = updatedBy,
+    createdBy = createdBy,
+) {
 }
